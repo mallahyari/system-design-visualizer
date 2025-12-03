@@ -5,13 +5,81 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  background-color: #020617;
-  /* slate-950 */
+  /* Default to dark theme - these will be overridden by ThemeContext */
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --bg-elevated: rgba(15, 23, 42, 0.7);
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-muted: #475569;
+
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
+  --interactive-bg: #1e293b;
+  --interactive-hover: #334155;
+  --interactive-active: #475569;
+
+  --accent-blue: #3b82f6;
+  --accent-blue-hover: #2563eb;
+  --accent-blue-glow: rgba(59, 130, 246, 0.2);
+  --accent-emerald: #10b981;
+  --accent-purple: #a855f7;
+  --accent-orange: #f97316;
+  --accent-yellow: #eab308;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4);
+
+  --node-bg: #111827;
+  --node-border: #374151;
+  --node-border-hover: #4b5563;
+  --panel-bg: rgba(17, 24, 39, 0.95);
+
+  --mermaid-theme: dark;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth theme transitions */
+*,
+*::before,
+*::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ReactFlow overrides for theming */
+.react-flow__controls {
+  background-color: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.react-flow__controls-button {
+  background-color: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+  fill: var(--text-secondary) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--interactive-hover) !important;
+}
+
+.react-flow__background {
+  background-color: var(--bg-primary) !important;
 }
